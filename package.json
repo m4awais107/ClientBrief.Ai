@@ -1,0 +1,9 @@
+{
+  "name": "clientbrief-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ClientBrief AI — turns a client's rough store idea into a structured, build-ready WooCommerce project brief.",
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ClientBrief AI — Turn client chats into build-ready briefs</title>
+<meta name="description" content="ClientBrief AI turns a client's rough store idea into a structured, build-ready WooCommerce project brief in seconds." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="#" class="wordmark">⎘ ClientBrief<span>AI</span></a>
+    <a href="#form" class="topbar__cta">New brief →</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__ticket">
+      <span class="hero__label">BRIEF NO.</span>
+      <span class="hero__number" id="nextBriefNumber">001</span>
+    </div>
+    <h1 class="hero__title">Turn a messy client chat<br>into a build-ready brief.</h1>
+    <p class="hero__sub">
+      Every WooCommerce freelancer knows the pain: a client says "I want an online store" and nothing else.
+      ClientBrief AI asks the right questions, then hands you a scoped, structured project brief —
+      pages, plugins, budget tier, and timeline — ready to quote from.
+    </p>
+    <div class="hero__actions">
+      <a href="#form" class="btn btn--primary">Start a brief ↓</a>
+      <button class="btn btn--ghost" id="sampleBtn" type="button">Try sample data</button>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="ticket-card" id="form">
+    <div class="ticket-card__head">
+      <span class="ticket-card__eyebrow">Intake form</span>
+      <h2>Tell us about the client's idea</h2>
+    </div>
+
+    <form id="briefForm" novalidate>
+
+      <fieldset class="field-group">
+        <legend><span class="num">01</span> Client &amp; business</legend>
+
+        <label class="field">
+          <span>Business / store name</span>
+          <input type="text" id="businessName" name="businessName" placeholder="e.g. Noor's Closet" required>
+        </label>
+
+        <label class="field">
+          <span>Business type</span>
+          <select id="businessType" name="businessType" required>
+            <option value="" disabled selected>Select a category</option>
+            <option>Fashion &amp; Clothing</option>
+            <option>Beauty &amp; Cosmetics</option>
+            <option>Food &amp; Beverage</option>
+            <option>Electronics &amp; Gadgets</option>
+            <option>Home &amp; Living</option>
+            <option>Handmade / Crafts</option>
+            <option>Digital Products / Services</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <label class="field" id="otherTypeWrap" hidden>
+          <span>Please specify</span>
+          <input type="text" id="otherType" name="otherType" placeholder="e.g. Pet supplies">
+        </label>
+
+        <label class="field">
+          <span>What will they sell / offer?</span>
+          <textarea id="products" name="products" rows="2" placeholder="e.g. Hand-stitched unstitched lawn suits, 15–20 SKUs, seasonal collections" required></textarea>
+        </label>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend><span class="num">02</span> Audience &amp; budget</legend>
+
+        <label class="field">
+          <span>Who's the target customer?</span>
+          <textarea id="audience" name="audience" rows="2" placeholder="e.g. Women 20–35 in Karachi and Lahore, shop mostly via Instagram and mobile"></textarea>
+        </label>
+
+        <label class="field">
+          <span>Budget range</span>
+          <select id="budget" name="budget" required>
+            <option value="" disabled selected>Select a range</option>
+            <option>Under PKR 30,000</option>
+            <option>PKR 30,000 – 70,000</option>
+            <option>PKR 70,000 – 150,000</option>
+            <option>PKR 150,000+</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend><span class="num">03</span> Features &amp; style</legend>
+
+        <div class="field">
+          <span>Must-have features</span>
+          <div class="checkgrid">
+            <label><input type="checkbox" value="Online payments (JazzCash / Easypaisa / cards)"> Online payments (JazzCash/Easypaisa/cards)</label>
+            <label><input type="checkbox" value="Product variations (size, color, etc.)"> Product variations (size, color)</label>
+            <label><input type="checkbox" value="Coupons & discount codes"> Coupons &amp; discount codes</label>
+            <label><input type="checkbox" value="Customer reviews & ratings"> Reviews &amp; ratings</label>
+            <label><input type="checkbox" value="Wishlist"> Wishlist</label>
+            <label><input type="checkbox" value="Blog / content section"> Blog / content section</label>
+            <label><input type="checkbox" value="Multi-currency or multi-language"> Multi-currency / language</label>
+            <label><input type="checkbox" value="Inventory & stock management"> Inventory &amp; stock management</label>
+            <label><input type="checkbox" value="Subscriptions / recurring orders"> Subscriptions / recurring orders</label>
+            <label><input type="checkbox" value="Live chat / WhatsApp button"> Live chat / WhatsApp button</label>
+          </div>
+        </div>
+
+        <label class="field">
+          <span>Brand style / vibe</span>
+          <input type="text" id="style" name="style" placeholder="e.g. elegant, minimal, soft pastel tones">
+        </label>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend><span class="num">04</span> Timeline &amp; notes</legend>
+
+        <label class="field">
+          <span>Desired timeline</span>
+          <select id="timeline" name="timeline" required>
+            <option value="" disabled selected>Select a timeline</option>
+            <option>ASAP (under 2 weeks)</option>
+            <option>2–4 weeks</option>
+            <option>1–2 months</option>
+            <option>Flexible / no rush</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Anything else worth noting?</span>
+          <textarea id="notes" name="notes" rows="2" placeholder="Optional — existing branding, competitor sites they like, etc."></textarea>
+        </label>
+      </fieldset>
+
+      <button type="submit" class="btn btn--primary btn--block" id="generateBtn">
+        <span class="btn__label">Generate brief →</span>
+      </button>
+      <p class="form-error" id="formError" hidden></p>
+    </form>
+  </section>
+
+  <!-- RESULT -->
+  <section class="result-wrap" id="resultWrap" hidden>
+    <article class="ticket-result" id="ticketResult">
+      <!-- filled by script.js -->
+    </article>
+    <div class="result-actions">
+      <button class="btn btn--ghost" id="copyBtn" type="button">Copy brief</button>
+      <button class="btn btn--ghost" id="downloadBtn" type="button">Download .txt</button>
+      <button class="btn btn--ghost" id="newBriefBtn" type="button">Start another</button>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="history" id="historySection" hidden>
+    <div class="history__head">
+      <span class="ticket-card__eyebrow">Saved on this device</span>
+      <h2>Recent briefs</h2>
+      <button class="link-btn" id="clearHistoryBtn" type="button">Clear all</button>
+    </div>
+    <ul class="history__list" id="historyList"></ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built by Awais — a spec-sheet for the conversation every WooCommerce project starts with.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
